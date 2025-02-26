@@ -33,8 +33,8 @@ module.exports = function (api) {
       ["@babel/preset-react", { development: isDevelopmentEnv || isTestEnv }],
     ].filter(Boolean),
     plugins: [
-      "babel-plugin-macros",
       "js-logger",
+      "babel-plugin-macros",
       "@babel/plugin-transform-runtime",
       isTestEnv
         ? "babel-plugin-dynamic-import-node" // tests run in node environment
