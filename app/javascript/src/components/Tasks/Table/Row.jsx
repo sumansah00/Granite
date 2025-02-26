@@ -1,7 +1,8 @@
 import React from "react";
 
-import { Tooltip } from "@bigbinary/neetoui";
 import PropTypes from "prop-types";
+
+import { Tooltip } from "components/commons";
 
 const Row = ({ data }) => (
   <tbody className="divide-y divide-gray-200 bg-white">
