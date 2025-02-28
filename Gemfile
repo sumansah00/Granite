@@ -81,5 +81,3 @@ gem "shakapacker", "~> 6.6.0"
 gem "react-rails", "~> 2.7.1"
 
 gem "pry-byebug"
-
-gem "sqlite3_ar_regexp", "~> 3.0"
