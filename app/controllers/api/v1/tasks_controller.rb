@@ -17,7 +17,7 @@ module Api
       end
 
       def show
-        render_json({ task: @task.as_json(include: { assigned_user: { only: %i[name id] } }) })
+        render
       end
 
       def update

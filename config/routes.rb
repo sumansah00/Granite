@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      resources :tasks, except: %i[new edit], param: :slug
-      resources :users, only: :index
+  constraints(lambda { |req| req.format == :json }) do
+    namespace :api do
+      namespace :v1 do
+        resources :tasks, except: %i[new edit], param: :slug
+        resources :users, only: :index
+      end
     end
   end
 

@@ -11,7 +11,7 @@ import Form from "./Form";
 const Edit = ({ history }) => {
   const [title, setTitle] = useState("");
   const [userId, setUserId] = useState("");
-  const [assignedUser, setAssignedUser] = useState({ id: null, name: "" });
+  const [assignedUser, setAssignedUser] = useState("");
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
@@ -45,12 +45,11 @@ const Edit = ({ history }) => {
 
   const fetchTaskDetails = async () => {
     try {
-      const response = await tasksApi.show(slug);
       const {
         data: {
           task: { title, assigned_user },
         },
-      } = response;
+      } = await tasksApi.show(slug);
       setTitle(title);
       setAssignedUser(assigned_user);
       setUserId(assigned_user.id);
@@ -81,10 +80,10 @@ const Edit = ({ history }) => {
       <div className="flex flex-col gap-y-8">
         <PageTitle title="Edit task" />
         <Form
-          {...{ assignedUser }}
+          assignedUser={assignedUser}
           handleSubmit={handleSubmit}
           loading={loading}
-          {...{ setTitle }}
+          setTitle={setTitle}
           setUserId={setUserId}
           title={title}
           users={users}
