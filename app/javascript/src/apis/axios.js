@@ -5,7 +5,7 @@ import { setToLocalStorage, getFromLocalStorage } from "utils/storage";
 
 const DEFAULT_ERROR_NOTIFICATION = "Something went wrong!";
 
-axios.defaults.baseURL = "/";
+axios.defaults.baseURL = "/api/v1/";
 
 const setAuthHeaders = () => {
   axios.defaults.headers = {
