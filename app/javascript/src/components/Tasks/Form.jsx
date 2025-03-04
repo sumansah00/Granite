@@ -11,6 +11,7 @@ const Form = ({
   setTitle,
   assignedUser,
   users,
+  userId,
   setUserId,
   loading,
   handleSubmit,
@@ -29,7 +30,7 @@ const Form = ({
 
   const isNotDirty = equals(initialValues.current, {
     title,
-    userId: assignedUser?.id,
+    userId,
   });
 
   return (
