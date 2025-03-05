@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
         resources :tasks, except: %i[new edit], param: :slug
-        resources :users, only: :index
+        resources :users, only: %i[index create]
       end
     end
   end
