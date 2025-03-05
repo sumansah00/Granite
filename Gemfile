@@ -83,3 +83,5 @@ gem "react-rails", "~> 2.7.1"
 gem "pry-byebug"
 
 gem "pundit", "~> 2.4"
+
+gem "bcrypt", "~> 3.1.13"
