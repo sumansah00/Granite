@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       namespace :v1 do
         resources :tasks, except: %i[new edit], param: :slug
         resources :users, only: %i[index create]
-        resource :session, only: :create
+        resource :session, only: [:create, :destroy]
       end
     end
   end
