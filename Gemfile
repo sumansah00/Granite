@@ -49,8 +49,13 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem "factory_bot_rails"
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
+
+  # For auto-generating demo data
+  gem "faker"
+
 end
 
 group :development do
@@ -87,11 +92,3 @@ gem "pundit", "~> 2.4"
 gem "bcrypt", "~> 3.1.13"
 
 gem "simplecov", require: false, group: :test
-
-group :development, :test do
-  # Rails integration for factory_bot, a replacement for fixtures
-  gem "factory_bot_rails"
-
-  # For auto-generating demo data
-  gem "faker"
-end
