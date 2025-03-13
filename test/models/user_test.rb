@@ -7,6 +7,11 @@ class UserTest < ActiveSupport::TestCase
     @user = build(:user)
   end
 
+  def teardown
+    # reset the env variables
+    Rails.env = "test"
+  end
+
   # name tests
   def test_user_should_not_be_valid_and_saved_without_name
     @user.name = ""
@@ -94,5 +99,24 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not_same @user.authentication_token,
       second_user.authentication_token
+  end
+
+  # tasks deletion tests
+  def test_tasks_created_by_user_are_deleted_when_user_is_deleted
+    task_owner = build(:user)
+    create(:task, assigned_user: @user, task_owner:)
+
+    assert_difference "Task.count", -1 do
+      task_owner.destroy
+    end
+  end
+
+  def test_tasks_are_assigned_back_to_task_owners_before_assigned_user_is_destroyed
+    task_owner = build(:user)
+    task = create(:task, assigned_user: @user, task_owner:)
+
+    assert_equal @user.id, task.assigned_user_id
+    @user.destroy
+    assert_equal task_owner.id, task.reload.assigned_user_id
   end
 end
