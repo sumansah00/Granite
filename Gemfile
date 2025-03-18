@@ -94,3 +94,9 @@ gem "bcrypt", "~> 3.1.13"
 gem "simplecov", require: false, group: :test
 
 gem "sidekiq", "<7"
+
+# For periodic sidekiq jobs
+gem "sidekiq-cron"
+
+# For opening mails in development env
+gem "letter_opener", group: :development
