@@ -113,3 +113,5 @@ gem "google-cloud-storage"
 
 # To load the environment variables
 gem "dotenv-rails"
+
+gem "redis", "~> 4.0"
