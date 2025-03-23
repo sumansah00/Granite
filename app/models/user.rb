@@ -6,6 +6,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   MAX_EMAIL_LENGTH = 255
 
+  has_one_attached :report
   has_secure_password
   has_secure_token :authentication_token
   with_options class_name: "Task" do |user|
