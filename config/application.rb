@@ -9,7 +9,7 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 # Load dotenv file
-Dotenv::Railtie.load
+Dotenv::Rails.load
 
 module Granite
   class Application < Rails::Application
